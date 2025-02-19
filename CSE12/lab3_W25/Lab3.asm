@@ -145,7 +145,23 @@
 	
 	#................ your code starts here..........................................................#
 	
+	print_str(prompt)
 	
+reprompt:
+	read_n(t0)
+	bgtz, t0, valid_input
+	print_str(invalidMsg)
+	print_str(newLine)
+	print_str(prompt)
+	j reprompt
+valid_input:
+	add t1, zero, zero
+loop_iteration:
+	bge t1, t0, loop_end
+	print_str(star)
+	addi t1, t1, 1
+	j loop_iteration
+loop_end:
 	
 
 

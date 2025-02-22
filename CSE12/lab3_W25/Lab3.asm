@@ -148,18 +148,44 @@
 	print_str(prompt)
 	
 reprompt:
-	read_n(t0)
-	bgtz, t0, valid_input
+	read_n(t0) 			# total number of rows (constant)
+	bgtz, t0, valid_input_received
 	print_str(invalidMsg)
 	print_str(newLine)
 	print_str(prompt)
 	j reprompt
-valid_input:
-	add t1, zero, zero
+valid_input_received:
+	li t1, 1 			# current row
+	li t2, 1 			# number of stars (increments by 2)
+	addi t3, t0, -1 		# number of spaces on either side (decrements by 1)
 loop_iteration:
-	bge t1, t0, loop_end
-	print_str(star)
+	bgt t1, t0, loop_end
+	
+	li t4, 1 			# random iterator/index register (reused)	
+	loop_inner1_iteration:
+		bgt t4, t3, loop_inner1_end
+		print_str(blankspace)
+		write_to_buffer(0x20)
+		addi t4, t4, 1
+		j loop_inner1_iteration
+	loop_inner1_end:
+	
+	li t4, 1
+	loop_inner2_iteration:
+		bgt t4, t2, loop_inner2_end
+		print_str(star)
+		write_to_buffer(0x2a)
+		addi t4, t4, 1
+		j loop_inner2_iteration
+	loop_inner2_end:
+	
+	print_str(newLine)
+	write_to_buffer(0x0a)
+		
 	addi t1, t1, 1
+	addi t2, t2, 2
+	addi t3, t3, -1
+	
 	j loop_iteration
 loop_end:
 	

@@ -8,6 +8,13 @@ newNode:
     #1. ecall to allocate memory (sbrk)
     #2. Store the node value
     #3. Store the null pointer as the next pointer (initialize to NULL)
-  
-    ret
+    
+	li a7, 9
+	li a0, 8
+	ecall
+	# a0 is now a pointer to the 8 bytes
+	sw a1, 0(a0)
+	sw zero, 4(a0)
+	
+	ret
     

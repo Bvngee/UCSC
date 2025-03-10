@@ -20,12 +20,15 @@ In this mini-project, we will cover the topics of sets, functions, proofs, recur
 relations, and other miscellaneous areas within the realm of discrete
 mathematics through introductions, example problems, and approachable explanations.
 
+#pagebreak()
+
 = Evaluating Sets
 
 *Roster notation* is a way of representing that groups set items inside curly
 braces separated by commas. ${1,2,3,4,5}$ is an example of a set in roster
-notation. ${2,1,4,3,5}$ is an equivalent set. ${1,2,2,3}$ is invalid, because
-sets cannot contain any item more than once.
+notation. ${2,1,4,3,5}$ is an equivalent set. ${1,2,2,3}$ is equivalent to
+${1,2,3}$, because sets cannot contain any item more than once. It is also
+equivalent to ${3,1,2}$, because sets are unordered containers.
 
 Set operations, such as union and intersection, are commonly represented using
 roster notation. See the following examples and their solutions.
@@ -42,6 +45,10 @@ both sets to create our new set: $underline({2, 3})$
 
 - ${1,2,3} xor {2,3,4}$ (where $A xor B = (A - B) union (B - A)$)
 
+This example uses the XOR operator ($xor$) between two sets. The XOR of two
+sets, much like the truth table of XOR in boolean algebra, only yields elements
+that are in one or the other set but NOT elements that are in both. XOR for sets
+is defined in terms of set differences, so we'll use that to compute the result.
 Subtraction returns the first set but with any shared items with the second set
 removed:
 
@@ -313,7 +320,7 @@ Is $f$ surjective? No, since range$(f) = {0,1}$, which is missing the $2$ from $
 Is $f$ injective? No, as both $f(0)$ and $f(2)$ result in $0$ (more than one
 input points to the same output).
 
-An interesting fact about $f$ is that $f compose f = f$. _Proof:_
+An interesting fact about $f$ is that $f compose f = f$. \ _Pf:_
 
 #box(inset: (x: 2em))[
   $(f compose f)(x) = f(f(x)) = 1 - (1-(1 - (1-x)^2))^2 = 1 - (1 - x)^4$, which
@@ -447,18 +454,18 @@ Multiple Choice Questions:
 greater than 100, which is an infinite set.
 
 - *Q:* Let $A = {{1,2},3,{4,5,6,7}}$. Select the correct value of $|A|$.
-  a) 1
-  b) 3
-  c) 6
+  a) 1 \
+  b) 3 \
+  c) 6 \
   d) 7
 
 *A:* $b$. The three elements in $A$ are ${1,2}$, $3$, and ${4,5,6,7}$.
 
 - *Q:* A donut shop sells boxes of 12 donuts. If they made $n$ donuts, how many
-  complete boxes can they make?
-  a) $floor(12n)$
-  b) $ceil(12n)$
-  c) $floor(n/12)$
+  complete boxes can they make? \
+  a) $floor(12n)$ \
+  b) $ceil(12n)$ \
+  c) $floor(n/12)$ \
   d) $ceil(n/12)$
 
 *A:* $c$. The shop can make one 12th the number of boxes as donuts (since 12
@@ -467,11 +474,11 @@ boxes.
 
 - *Q:* Let $f : {0,1}^4 -> {0,1}^4$ be the function where $f(x)$ is the result
   of taking the second bit from $x$ and moving it to the end of the string.
-  Select the correct description of $f$.
-  a) Injective, Surjective
-  b) Not Injective, Surjective
-  c) Injective, Not Surjective
-  d) Not Injective, Not Surjective
+  Select the correct description of $f$. \
+  a) Injective, Surjective \
+  b) Not Injective, Surjective \
+  c) Injective, Not Surjective \
+  d) Not Injective, Not Surjective \
 
 *A:* a. Since every distinct input produces a distinct output, $f$ is injective.
 Since every combination of four bits is a possible output, $f$ is surjective.

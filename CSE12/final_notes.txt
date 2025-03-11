@@ -1,0 +1,37 @@
+61011 from base 7 to base 49:
+    11 = 7 + 1 == 8
+    10 = 7 == 7
+    06 = 6 == 6
+    ==> 678
+
+Q8:
+([F' + (C' + D' + E')*(A' + B')] * G')'
+[F' + (C' + D' + E')*(A' + B')]' + G
+F * [(C' + D' + E')*(A' + B')]' + G
+F * (C' + D' + E')'+(A' + B')' + G
+F*(CDE+AB) + G
+
+Q10:
+t1=5, t2=4
+t2=3
+t1+=5 while t2-=1 until t2==0
+t1=20
+t2=0
+
+NON-LEAF FUNCTIONS: DO CALL OTHER FUNCTION(S)
+LEAF FUNCTIONS: DO *NOT* CALL OTHER FUNCTION(S)
+
+Q12: caller/callee register saves
+
+Pointer arithmetic
+
+floating point (IEE 754):
+floating point numbers are all represented as signbit(1) exponent(8) mantissa(23)
+13.25:
+13 = 1101
+0.25:
+0.25*2 = 0.5  (0)
+0.5*2 = 1.0 (1)
+==> 0 (sign bit) 1101 (for 13) 01 (for 0.25) *2^3 (shifting three places so its 1.10101)
+so since the exponent is from -127 to 127 ... FIGURE THIS OUT
+
